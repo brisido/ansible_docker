@@ -1,0 +1,14 @@
+---
+
+- name: Criando os containers
+  hosts: docker
+  remote_user: root
+  tasks:
+  - name: Subindo os Containers Green e Blue
+    docker_container:
+     name: "{{ item }}"
+     image: httpd
+     state: started
+    with_items:
+     - green
+     - blue

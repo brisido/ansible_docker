@@ -1,0 +1,13 @@
+---
+
+- name: Adicionando as pastas Blue e Green
+  hosts: docker
+  remote_user: root
+  tasks:
+  - name: Criando pasta Blue e Green
+    file:
+     path: "{{ item  }}"
+     state: directory
+    with_items:
+     - /blue
+     - /green

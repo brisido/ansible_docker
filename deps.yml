@@ -1,0 +1,26 @@
+---
+
+- name: Instalando deps
+  hosts: docker
+  remote_user: root
+  tasks:
+  - name: instalando o python-pip
+    apt:
+     name: python-pip
+     state: present
+
+  - name: Instalando a dependencia do python com docker
+    pip:
+     name: docker-py
+
+  - name: Criando pasta Blue
+    file:
+     path: /blue
+     state: directory
+     mode: 0644
+
+  - name: Criando pasta Green
+    file:
+     path: /green
+     state: directory
+     mode: 0644
